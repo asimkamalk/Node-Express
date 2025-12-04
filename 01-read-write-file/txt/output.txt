@@ -1,2 +1,2 @@
 Text from output.txt method--> writeFileSync Text from input.txt --> method readFileSync. 
- Created on 1764862481225
+ Created on 1764864087865
