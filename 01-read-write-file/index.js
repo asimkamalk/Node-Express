@@ -1,4 +1,8 @@
 const fs = require("fs");
+const http = require("http");
+
+////////////////////////////////////////////////////////////////
+// FILES
 
 // Blocking, synchronous way
 // const textInp = fs.readFileSync("./txt/input.txt", "utf-8");
@@ -13,13 +17,24 @@ const fs = require("fs");
 // Non-Blocking asynchronous way
 
 // Call Back Hell
-fs.readFile("./txt/start.txt", "utf-8", (err, data1) => {
-  if (err) return console.log("Err");
-  fs.readFile(`./txt/input.txt`, "utf-8", (err, data2) => {
-    console.log(data2);
-    fs.writeFile("./txt/append.txt", `${data1}\n ${data2}`, (err) => {
-      console.log("file hass been written");
-    });
-  });
+// fs.readFile("./txt/start.txt", "utf-8", (err, data1) => {
+//   if (err) return console.log("Err");
+//   fs.readFile(`./txt/input.txt`, "utf-8", (err, data2) => {
+//     console.log(data2);
+//     fs.writeFile("./txt/append.txt", `${data1}\n ${data2}`, (err) => {
+//       console.log("file hass been written");
+//     });
+//   });
+// });
+// console.log("Will read file");
+
+////////////////////////////////////////////////////////////////
+// SERVER
+
+const server = http.createServer((req, res) => {
+  res.end("Hello from the server!");
 });
-console.log("Will read file");
+
+server.listen(3000, () => {
+  console.log("Listening to requests on PORT 3000");
+});
